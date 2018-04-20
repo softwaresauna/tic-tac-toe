@@ -10,8 +10,10 @@ class App extends Component {
                 </header>
 
                 <Board />
+
                 <Status/>
 
+                <Restart />
             </div>
         );
     }
@@ -60,6 +62,15 @@ class Status extends Component {
     render() {
 
         return (<p>Player: <b>X</b></p>);
+
+    }
+}
+
+class Restart extends Component {
+
+    render() {
+
+        return (<button>Restart</button>);
 
     }
 }
