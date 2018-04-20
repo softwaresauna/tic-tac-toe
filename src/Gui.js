@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Gui.css';
+import {move} from "./engine";
 
 
 class Gui extends Component {
@@ -41,8 +42,11 @@ class Gui extends Component {
 
     handleCellClick = (row, column) => {
 
-        console.log("cell click: " + row + ", " + column);
-
+        this.setState(
+            move(
+                this.state,
+                row,
+                column));
     }
 }
 
