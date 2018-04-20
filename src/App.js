@@ -11,6 +11,8 @@ class App extends Component {
 
                 <Board/>
 
+                <Status />
+
 
             </div>
         );
@@ -25,6 +27,15 @@ class Board extends Component {
     render() {
 
         return (<p>I'm a board!!!</p>);
+
+    }
+}
+
+class Status extends Component {
+
+    render() {
+
+        return (<p>Player: <b>X</b></p>);
 
     }
 }
