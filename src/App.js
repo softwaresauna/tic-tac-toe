@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Board} from './Board.js'
 
 class App extends Component {
     render() {
@@ -19,3 +18,13 @@ class App extends Component {
 }
 
 export default App;
+
+
+class Board extends Component {
+
+    render() {
+
+        return (<p>I'm a board!!!</p>);
+
+    }
+}
