@@ -54,8 +54,19 @@ class Cell extends Component {
 
     render() {
 
-        return (<div className="Cell"></div>);
+        return (
+            <div
+                className="Cell"
+                onClick={ this.onCellClick }
+            ></div>
+        );
+    }
 
+    onCellClick = () => {
+        console.log(
+            "click: " +
+            this.props.row + ", " +
+            this.props.column)
     }
 }
 
