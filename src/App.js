@@ -9,10 +9,8 @@ class App extends Component {
                     <h1 className="App-title">Tic-Tac-Toe</h1>
                 </header>
 
-                <Board/>
-
-                <Status />
-
+                <Board />
+                <Status/>
 
             </div>
         );
@@ -26,7 +24,33 @@ class Board extends Component {
 
     render() {
 
-        return (<p>I'm a board!!!</p>);
+        return (
+            <table className="Board">
+                <tr>
+                    <td><Cell row="0" column="0"/></td>
+                    <td><Cell row="0" column="1"/></td>
+                    <td><Cell row="0" column="2"/></td>
+                </tr>
+                <tr>
+                    <td><Cell row="1" column="0"/></td>
+                    <td><Cell row="1" column="1"/></td>
+                    <td><Cell row="1" column="2"/></td>
+                </tr>
+                <tr>
+                    <td><Cell row="2" column="0"/></td>
+                    <td><Cell row="2" column="1"/></td>
+                    <td><Cell row="2" column="2"/></td>
+                </tr>
+            </table>);
+
+    }
+}
+
+class Cell extends Component {
+
+    render() {
+
+        return (<div className="Cell">X</div>);
 
     }
 }

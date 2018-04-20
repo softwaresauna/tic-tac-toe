@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Board {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Cell {
+  font-size: 36px;
+  font-weight: bolder;
+  padding: 20px;
+  border: 1px solid gray;
+}
