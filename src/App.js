@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
 import './App.css';
 
+
+var gameState = {
+
+    board: [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ],
+
+    turn: 'x',
+    finished: false,
+    winner: undefined
+};
+
 class App extends Component {
     render() {
         return (
