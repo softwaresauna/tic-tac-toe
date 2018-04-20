@@ -52,7 +52,7 @@ class Cell extends Component {
 
     render() {
 
-        return (<div className="Cell">X</div>);
+        return (<div className="Cell"></div>);
 
     }
 }
