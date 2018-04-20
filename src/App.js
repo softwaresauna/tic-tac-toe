@@ -94,7 +94,7 @@ class Status extends Component {
 
     render() {
 
-        return (<p>Player: <b>X</b></p>);
+        return (<p>Player: <b>{ gameState.turn }</b></p>);
 
     }
 }
