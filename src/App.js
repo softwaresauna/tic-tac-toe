@@ -9,11 +9,11 @@ class App extends Component {
                     <h1 className="App-title">Tic-Tac-Toe</h1>
                 </header>
 
-                <Board />
+                <Board/>
 
                 <Status/>
 
-                <Restart />
+                <Restart/>
             </div>
         );
     }
@@ -28,6 +28,7 @@ class Board extends Component {
 
         return (
             <table className="Board">
+                <tbody>
                 <tr>
                     <td><Cell row="0" column="0"/></td>
                     <td><Cell row="0" column="1"/></td>
@@ -43,6 +44,7 @@ class Board extends Component {
                     <td><Cell row="2" column="1"/></td>
                     <td><Cell row="2" column="2"/></td>
                 </tr>
+                </tbody>
             </table>);
 
     }
