@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './Gui.css';
 
 
 let gameState = {
@@ -15,7 +15,7 @@ let gameState = {
     winner: undefined
 };
 
-class App extends Component {
+class Gui extends Component {
     render() {
         return (
             <div className="App">
@@ -33,7 +33,7 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Gui;
 
 
 class Board extends Component {
