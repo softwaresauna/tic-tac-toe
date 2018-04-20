@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 
 
-var gameState = {
+let gameState = {
 
     board: [
         ['', '', ''],
@@ -72,7 +72,9 @@ class Cell extends Component {
             <div
                 className="Cell"
                 onClick={ this.onCellClick }
-            ></div>
+            >
+                { this.getCellContents() }
+            </div>
         );
     }
 
@@ -81,7 +83,11 @@ class Cell extends Component {
             "click: " +
             this.props.row + ", " +
             this.props.column)
-    }
+    };
+
+    getCellContents = () =>
+        gameState.board[this.props.row][this.props.column];
+
 }
 
 class Status extends Component {
