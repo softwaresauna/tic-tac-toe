@@ -2,20 +2,25 @@ import React, {Component} from 'react';
 import './Gui.css';
 
 
-let gameState = {
-
-    board: [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
-    ],
-
-    turn: 'x',
-    finished: false,
-    winner: undefined
-};
-
 class Gui extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+            board: [
+                ['', '', ''],
+                ['', '', ''],
+                ['', '', '']
+            ],
+
+            turn: 'x',
+            finished: false,
+            winner: undefined
+        };
+    }
+
     render() {
         return (
             <div className="App">
@@ -23,45 +28,62 @@ class Gui extends Component {
                     <h1 className="App-title">Tic-Tac-Toe</h1>
                 </header>
 
-                <Board/>
+                <Board
+                    gameState={this.state}
+                    cellClickHandler={this.handleCellClick}/>
 
-                <Status/>
+                <Status gameState={this.state}/>
 
                 <Restart/>
             </div>
         );
+    }
+
+    handleCellClick = (row, column) => {
+
+        console.log("cell click: " + row + ", " + column);
+
     }
 }
 
 export default Gui;
 
 
-class Board extends Component {
+function Board(props) {
 
-    render() {
+
+    function createCell(row, column) {
 
         return (
-            <table className="Board">
-                <tbody>
-                <tr>
-                    <td><Cell row="0" column="0"/></td>
-                    <td><Cell row="0" column="1"/></td>
-                    <td><Cell row="0" column="2"/></td>
-                </tr>
-                <tr>
-                    <td><Cell row="1" column="0"/></td>
-                    <td><Cell row="1" column="1"/></td>
-                    <td><Cell row="1" column="2"/></td>
-                </tr>
-                <tr>
-                    <td><Cell row="2" column="0"/></td>
-                    <td><Cell row="2" column="1"/></td>
-                    <td><Cell row="2" column="2"/></td>
-                </tr>
-                </tbody>
-            </table>);
-
+            <td>
+                <Cell
+                    row={row}
+                    column={column}
+                    gameState={props.gameState}
+                    cellClickHandler={props.cellClickHandler}/>
+            </td>);
     }
+
+    return (
+        <table className="Board">
+            <tbody>
+            <tr>
+                {createCell(0, 0)}
+                {createCell(0, 1)}
+                {createCell(0, 2)}
+            </tr>
+            <tr>
+                {createCell(1, 0)}
+                {createCell(1, 1)}
+                {createCell(1, 2)}
+            </tr>
+            <tr>
+                {createCell(2, 0)}
+                {createCell(2, 1)}
+                {createCell(2, 2)}
+            </tr>
+            </tbody>
+        </table>);
 }
 
 class Cell extends Component {
@@ -71,22 +93,21 @@ class Cell extends Component {
         return (
             <div
                 className="Cell"
-                onClick={ this.onCellClick }
+                onClick={this.onCellClick}
             >
-                { this.getCellContents() }
+                {this.getCellContents()}
             </div>
         );
     }
 
-    onCellClick = () => {
-        console.log(
-            "click: " +
-            this.props.row + ", " +
-            this.props.column)
-    };
+    onCellClick = () =>
+        this.props.cellClickHandler(
+            this.props.row,
+            this.props.column);
+
 
     getCellContents = () =>
-        gameState.board[this.props.row][this.props.column];
+        this.props.gameState.board[this.props.row][this.props.column];
 
 }
 
@@ -94,7 +115,7 @@ class Status extends Component {
 
     render() {
 
-        return (<p>Player: <b>{ gameState.turn }</b></p>);
+        return (<p>Player: <b>{this.props.gameState.turn}</b></p>);
 
     }
 }
