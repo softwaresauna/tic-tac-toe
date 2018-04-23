@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Gui.css';
 import {move} from "./engine";
+import {createInitialState} from "./state";
 
 
 class Gui extends Component {
@@ -8,18 +9,7 @@ class Gui extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-
-            board: [
-                ['', '', ''],
-                ['', '', ''],
-                ['', '', '']
-            ],
-
-            turn: 'x',
-            finished: false,
-            winner: undefined
-        };
+        this.state = createInitialState();
     }
 
     render() {
