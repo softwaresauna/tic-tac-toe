@@ -3,9 +3,9 @@ export const createInitialState = () => {
     return {
 
         board: [
-            ['', '', ''],
-            ['', '', ''],
-            ['', '', '']
+            [_, _, _],
+            [_, _, _],
+            [_, _, _]
         ],
 
         turn: X,
@@ -17,4 +17,5 @@ export const createInitialState = () => {
 export const
     X = 'x',
     O = 'o',
+    _ = '',
     NONE = undefined;
