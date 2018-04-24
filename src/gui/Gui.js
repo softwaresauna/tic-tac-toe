@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Gui.css';
-import {move} from "./engine";
-import {createInitialState} from "./state";
+import {move} from "../engine/engine";
+import {createInitialState} from "../engine/state";
 
 
 class Gui extends Component {

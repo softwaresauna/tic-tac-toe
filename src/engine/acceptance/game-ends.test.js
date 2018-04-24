@@ -1,5 +1,5 @@
-import {createInitialState, NONE, O, X} from "./state";
-import {move} from "./engine";
+import {createInitialState, NONE, O, X} from "../state";
+import {move} from "../engine";
 
 let state;
 
