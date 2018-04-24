@@ -3,22 +3,6 @@ import {move} from "./engine";
 
 let state;
 
-const makeMove = (row, column) => {
-    state = move(state, row, column);
-};
-
-const expectWinner = (expectedWinner) => {
-    expect(state).toBeDefined();
-    expect(state.finished).toBeTruthy();
-    expect(state.winner).toBe(expectedWinner);
-};
-
-const expectBoard = (expectedBoard) => {
-    expect(state).toBeDefined();
-    expect(state.board).toBe(expectedBoard);
-};
-
-
 beforeEach(() => {
     state = createInitialState();
 });
@@ -84,3 +68,18 @@ test('a draw', () => {
     ]);
 
 });
+
+function makeMove(row, column) {
+    state = move(state, row, column);
+}
+
+function expectWinner(expectedWinner) {
+    expect(state).toBeDefined();
+    expect(state.finished).toBeTruthy();
+    expect(state.winner).toBe(expectedWinner);
+}
+
+function expectBoard(expectedBoard) {
+    expect(state).toBeDefined();
+    expect(state.board).toBe(expectedBoard);
+}
