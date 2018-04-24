@@ -13,3 +13,8 @@ export const createInitialState = () => {
         winner: undefined
     };
 }
+
+export const
+    X = 'x',
+    O = 'o',
+    NONE = undefined;
