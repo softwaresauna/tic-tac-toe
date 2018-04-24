@@ -8,7 +8,7 @@ export const createInitialState = () => {
             ['', '', '']
         ],
 
-        turn: 'x',
+        turn: X,
         finished: false,
         winner: undefined
     };
