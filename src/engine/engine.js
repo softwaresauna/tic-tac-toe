@@ -5,7 +5,9 @@ import {getWinner} from "./winner-resolver";
 
 export function move(gameState, row, column) {
 
-    console.log("move: ", gameState, "cell: " + row + ", " + column);
+    if (gameState.finished) {
+        throw "Game is finished!";
+    }
 
     const nextBoard = markBoard(gameState.board, gameState.turn, row, column);
     const winner = getWinner(nextBoard);
