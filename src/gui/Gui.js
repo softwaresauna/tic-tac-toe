@@ -109,7 +109,23 @@ class Status extends Component {
 
     render() {
 
-        return (<p>Player: <b>{this.props.gameState.turn}</b></p>);
+        const gameState = this.props.gameState;
+
+        return gameState.finished ? (
+            <div>
+                <h2>GAME OVER</h2>
+                {renderWinner()}
+            </div>
+        ) : (
+            <p>Next player: <b>{gameState.turn}</b></p>
+        );
+
+        function renderWinner() {
+            return gameState.winner
+                ? <p>Winner: {gameState.winner}</p>
+                : <p>A draw!</p>;
+        }
+
 
     }
 }
