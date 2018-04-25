@@ -81,5 +81,5 @@ function expectWinner(expectedWinner) {
 
 function expectBoard(expectedBoard) {
     expect(state).toBeDefined();
-    expect(state.board).toBe(expectedBoard);
+    expect(state.board).toEqual(expectedBoard);
 }
