@@ -113,27 +113,22 @@ class Cell extends Component {
 
 }
 
-class Status extends Component {
+function Status(props) {
 
-    render() {
+    const gameState = props.gameState;
 
-        const gameState = this.props.gameState;
+    return gameState.finished ? (
+        <div>
+            <h2>GAME OVER</h2>
+            {renderWinner()}
+        </div>
+    ) : (
+        <p>Next player: <b>{gameState.turn}</b></p>
+    );
 
-        return gameState.finished ? (
-            <div>
-                <h2>GAME OVER</h2>
-                {renderWinner()}
-            </div>
-        ) : (
-            <p>Next player: <b>{gameState.turn}</b></p>
-        );
-
-        function renderWinner() {
-            return gameState.winner
-                ? <p>Winner: <b>{gameState.winner}</b></p>
-                : <p>A draw!</p>;
-        }
-
-
+    function renderWinner() {
+        return gameState.winner
+            ? <p>Winner: <b>{gameState.winner}</b></p>
+            : <p>A draw!</p>;
     }
 }
