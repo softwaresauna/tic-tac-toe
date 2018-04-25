@@ -24,8 +24,6 @@ class Gui extends Component {
                     cellClickHandler={this.handleCellClick}/>
 
                 <Status gameState={this.state}/>
-
-                <Restart/>
             </div>
         );
     }
@@ -122,19 +120,10 @@ class Status extends Component {
 
         function renderWinner() {
             return gameState.winner
-                ? <p>Winner: {gameState.winner}</p>
+                ? <p>Winner: <b>{gameState.winner}</b></p>
                 : <p>A draw!</p>;
         }
 
-
-    }
-}
-
-class Restart extends Component {
-
-    render() {
-
-        return (<button>Restart</button>);
 
     }
 }
