@@ -30,11 +30,21 @@ class Gui extends Component {
 
     handleCellClick = (row, column) => {
 
-        this.setState(
-            move(
-                this.state,
-                row,
-                column));
+        const oldState = this.state;
+
+        this.setState(safeMove());
+
+        function safeMove() {
+            try {
+                return move(
+                    oldState,
+                    row,
+                    column);
+            } catch (e) {
+                alert(e);
+                return oldState;
+            }
+        }
     }
 }
 
