@@ -39,3 +39,49 @@ test('full horizontals win', () => {
         ]))
         .toBe(X);
 });
+
+test('full verticals win', () => {
+
+    expect(
+        getWinner([
+            [X, _, X],
+            [X, O, O],
+            [X, _, O],
+        ]))
+        .toBe(X);
+
+    expect(
+        getWinner([
+            [_, X, O],
+            [O, X, _],
+            [_, X, O],
+        ]))
+        .toBe(X);
+
+    expect(
+        getWinner([
+            [_, _, X],
+            [O, _, X],
+            [X, O, X],
+        ]))
+        .toBe(X);
+});
+
+test('full diagonals win', () => {
+
+    expect(
+        getWinner([
+            [X, _, O],
+            [O, X, O],
+            [O, _, X],
+        ]))
+        .toBe(X);
+
+    expect(
+        getWinner([
+            [_, X, X],
+            [O, X, _],
+            [X, O, O],
+        ]))
+        .toBe(X);
+});
