@@ -1,58 +1,28 @@
 import React, {Component} from 'react';
 import './Gui.css';
 import {move} from "../engine/engine";
-import {createInitialState} from "../engine/state";
+import {registerGameStateComponent, updateGameState} from "../gui/component-state";
 
 
-class Gui extends Component {
+function Gui() {
 
-    constructor(props) {
-        super(props);
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1 className="App-title">Tic-Tac-Toe</h1>
+            </header>
 
-        this.state = createInitialState();
-    }
+            <Board/>
 
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Tic-Tac-Toe</h1>
-                </header>
-
-                <Board
-                    gameState={this.state}
-                    cellClickHandler={this.handleCellClick}/>
-
-                <Status gameState={this.state}/>
-            </div>
-        );
-    }
-
-    handleCellClick = (row, column) => {
-
-        const oldState = this.state;
-
-        this.setState(safeMove());
-
-        function safeMove() {
-            try {
-                return move(
-                    oldState,
-                    row,
-                    column);
-            } catch (e) {
-                alert(e);
-                return oldState;
-            }
-        }
-    }
+            <Status/>
+        </div>
+    );
 }
 
 export default Gui;
 
 
-function Board(props) {
-
+function Board() {
 
     function createCell(row, column) {
 
@@ -61,8 +31,7 @@ function Board(props) {
                 <Cell
                     row={row}
                     column={column}
-                    gameState={props.gameState}
-                    cellClickHandler={props.cellClickHandler}/>
+                />
             </td>);
     }
 
@@ -88,7 +57,17 @@ function Board(props) {
         </table>);
 }
 
-class Cell extends Component {
+class GameStateComponent extends Component {
+
+    constructor(props) {
+        super(props);
+
+        registerGameStateComponent(this);
+    }
+
+}
+
+class Cell extends GameStateComponent {
 
     render() {
 
@@ -102,33 +81,52 @@ class Cell extends Component {
         );
     }
 
-    onCellClick = () =>
-        this.props.cellClickHandler(
-            this.props.row,
-            this.props.column);
+    onCellClick = () => {
 
+        const newState = this.safeMove();
+
+        updateGameState(newState);
+    };
+
+    safeMove() {
+
+        const oldState = this.state;
+
+        try {
+            return move(
+                oldState,
+                this.props.row,
+                this.props.column);
+        } catch (e) {
+            alert(e);
+            return oldState;
+        }
+    }
 
     getCellContents = () =>
-        this.props.gameState.board[this.props.row][this.props.column];
+        this.state.board[this.props.row][this.props.column];
 
 }
 
-function Status(props) {
+class Status extends GameStateComponent {
 
-    const gameState = props.gameState;
+    render() {
 
-    return gameState.finished ? (
-        <div>
-            <h2>GAME OVER</h2>
-            {renderWinner()}
-        </div>
-    ) : (
-        <p>Next player: <b>{gameState.turn}</b></p>
-    );
+        const gameState = this.state;
 
-    function renderWinner() {
-        return gameState.winner
-            ? <p>Winner: <b>{gameState.winner}</b></p>
-            : <p>A draw!</p>;
+        return gameState.finished ? (
+            <div>
+                <h2>GAME OVER</h2>
+                {renderWinner()}
+            </div>
+        ) : (
+            <p>Next player: <b>{gameState.turn}</b></p>
+        );
+
+        function renderWinner() {
+            return gameState.winner
+                ? <p>Winner: <b>{gameState.winner}</b></p>
+                : <p>A draw!</p>;
+        }
     }
 }
