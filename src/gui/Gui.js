@@ -103,13 +103,19 @@ class Cell extends GameStateComponent {
 
         const oldState = this.state;
 
+        const coords = {
+            row: this.props.row,
+            column: this.props.column
+        }
+
         try {
             return move(
                 oldState,
-                this.props.row,
-                this.props.column);
+                coords.row,
+                coords.column
+            );
         } catch (e) {
-            alert(e);
+            console.log('Failed to make move ' + JSON.stringify(coords) + ": ", e);
             return oldState;
         }
     }
