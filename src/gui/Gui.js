@@ -2,21 +2,32 @@ import React, {Component} from 'react';
 import './Gui.css';
 import {move} from "../engine/engine";
 import {registerGameStateComponent, updateGameState} from "../gui/component-state";
+import logo from './sauna-logo-small.png'
 
 
 function Gui() {
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">Tic-Tac-Toe</h1>
-            </header>
+    return <div className="App">
+        <header className="App-header">
+            <h1 className="App-title">Tic-Tac-Toe</h1>
 
-            <Board/>
+            <div>
+                <span>Powered by:</span>
+                <br/>
+                <a href="http://softwaresauna.com">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                </a>
+            </div>
+        </header>
 
-            <Status/>
-        </div>
-    );
+        <Board/>
+
+        <Status/>
+
+        <footer>
+            <a href="https://github.com/softwaresauna/tic-tac-toe">Go to source</a>
+        </footer>
+    </div>;
 }
 
 export default Gui;
