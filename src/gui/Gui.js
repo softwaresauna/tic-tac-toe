@@ -106,7 +106,7 @@ class Cell extends GameStateComponent {
         const coords = {
             row: this.props.row,
             column: this.props.column
-        }
+        };
 
         try {
             return move(
