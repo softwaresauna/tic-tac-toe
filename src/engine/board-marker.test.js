@@ -62,18 +62,22 @@ test('do not modify old board', () => {
 
 });
 
-test('reject marking occupied cell', () => {
+test('ignore marking occupied cell', () => {
 
     expect(
-        () =>
-            markBoard(
-                [
-                    [_, X],
-                    [_, _]
-                ],
-                O, 0, 1
-            ))
-        .toThrow('Cell occupied!');
+        markBoard(
+            [
+                [_, X],
+                [_, _]
+            ],
+            O, 0, 1
+        ))
+        .toEqual(
+            [
+                [_, X],
+                [_, _]
+            ]
+        );
 });
 
 const emptyBoard = [[_, _], [_, _]];

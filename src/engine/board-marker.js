@@ -7,7 +7,7 @@ export function markBoard(board, mark, row, column) {
     }
 
     if (board[row][column] !== _) {
-        throw 'Cell occupied!';
+        return board;
     }
 
     const newBoard = copyBoard(board);

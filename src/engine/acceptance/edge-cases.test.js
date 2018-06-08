@@ -21,3 +21,14 @@ test('ignore move on finished game', () => {
     }
 
 });
+
+test('ignore move on occupied space', () => {
+
+    const state = move(createInitialState(), 1, 1);
+
+    expect(
+        move(state, 1, 1).board
+    ).toEqual(
+        state.board
+    );
+});
