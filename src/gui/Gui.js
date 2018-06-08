@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Gui.css';
 import {move} from "../engine/engine";
-import {registerGameStateComponent, updateGameState} from "../gui/component-state";
+import {GameStateObserver, updateGameState} from "./state-observer";
 import logo from './sauna-logo-small.png'
 
 
@@ -68,17 +68,7 @@ function Board() {
         </table>);
 }
 
-class GameStateComponent extends Component {
-
-    constructor(props) {
-        super(props);
-
-        registerGameStateComponent(this);
-    }
-
-}
-
-class Cell extends GameStateComponent {
+class Cell extends GameStateObserver {
 
     render() {
 
@@ -125,7 +115,7 @@ class Cell extends GameStateComponent {
 
 }
 
-class Status extends GameStateComponent {
+class Status extends GameStateObserver {
 
     render() {
 
