@@ -6,7 +6,7 @@ import {getWinner} from "./winner-resolver";
 export function move(gameState, row, column) {
 
     if (gameState.finished) {
-        throw "Game is finished!";
+        return gameState;
     }
 
     const nextBoard = markBoard(gameState.board, gameState.turn, row, column);
