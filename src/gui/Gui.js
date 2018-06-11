@@ -84,31 +84,14 @@ class Cell extends GameStateObserver {
 
     onCellClick = () => {
 
-        const newState = this.safeMove();
+        const newState = move(
+            this.state,
+            this.props.row,
+            this.props.column
+        );
 
         updateGameState(newState);
     };
-
-    safeMove() {
-
-        const oldState = this.state;
-
-        const coords = {
-            row: this.props.row,
-            column: this.props.column
-        };
-
-        try {
-            return move(
-                oldState,
-                coords.row,
-                coords.column
-            );
-        } catch (e) {
-            console.log('Failed to make move ' + JSON.stringify(coords) + ": ", e);
-            return oldState;
-        }
-    }
 
     getCellContents = () =>
         this.state.board[this.props.row][this.props.column];
