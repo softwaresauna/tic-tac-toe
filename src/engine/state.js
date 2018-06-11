@@ -9,10 +9,9 @@ export const createInitialState = () => {
         ],
 
         turn: X,
-        finished: false,
-        winner: undefined
+        status: IN_PROGRESS
     };
-}
+};
 
 export const
     X = 'x',

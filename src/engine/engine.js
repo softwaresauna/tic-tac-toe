@@ -2,10 +2,11 @@ import {alternateTurn} from "./turn-alternator";
 import {getStatus} from "./status-resolver";
 import {markBoard} from "./board-marker";
 import {getWinner} from "./winner-resolver";
+import {isStatusTerminal} from "./status-terminality-resolver";
 
 export function move(gameState, row, column) {
 
-    if (gameState.finished) {
+    if (isStatusTerminal(gameState.status)) {
         return gameState;
     }
 
