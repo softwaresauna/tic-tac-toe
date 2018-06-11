@@ -1,5 +1,5 @@
 import {move} from "../engine";
-import {createInitialState} from "../state";
+import {createInitialState, DRAW} from "../state";
 
 test('ignore move on finished game', () => {
 

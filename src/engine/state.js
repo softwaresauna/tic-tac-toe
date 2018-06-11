@@ -19,3 +19,9 @@ export const
     O = 'o',
     _ = '',
     NONE = undefined;
+
+export const
+    X_WON = 'X won',
+    O_WON = 'O won',
+    DRAW = 'a draw',
+    IN_PROGRESS = 'in progress';

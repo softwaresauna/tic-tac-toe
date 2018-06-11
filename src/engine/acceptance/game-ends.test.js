@@ -1,4 +1,4 @@
-import {createInitialState, NONE, O, X, _} from "../state";
+import {createInitialState, NONE, O, X, _, X_WON, O_WON, DRAW, IN_PROGRESS} from "../state";
 import {move} from "../engine";
 
 let state;
@@ -18,7 +18,7 @@ test('X wins', () => {
     makeMove(2, 1);
     makeMove(1, 0);
 
-    expectStatus(X_WINS);
+    expectStatus(X_WON);
 
     expectBoard([
         [X, _, O],
@@ -37,7 +37,7 @@ test('O wins', () => {
     makeMove(2, 1);
     makeMove(2, 2);
 
-    expectStatus(O_WINS);
+    expectStatus(O_WON);
 
     expectBoard([
         [O, _, X],
@@ -69,7 +69,7 @@ test('a draw', () => {
 
 });
 
-test('a draw', () => {
+test('in progress', () => {
 
     makeMove(0, 0);
     makeMove(0, 1);
