@@ -3,6 +3,7 @@ import './Gui.css';
 import {move} from "../engine/engine";
 import {GameStateObserver, updateGameState} from "./state-observer";
 import logo from './sauna-logo-small.png'
+import {DRAW, IN_PROGRESS, O_WON, X_WON} from "../engine/state";
 
 
 function Gui() {
@@ -104,19 +105,36 @@ class Status extends GameStateObserver {
 
         const gameState = this.state;
 
-        return gameState.finished ? (
-            <div>
-                <h2>GAME OVER</h2>
-                {renderWinner()}
-            </div>
-        ) : (
-            <p>Next player: <b>{gameState.turn}</b></p>
-        );
-
-        function renderWinner() {
-            return gameState.winner
-                ? <p>Winner: <b>{gameState.winner}</b></p>
-                : <p>A draw!</p>;
+        switch (gameState.status) {
+            case X_WON:
+                return (
+                    <div>
+                        <h2>GAME OVER</h2>
+                        X won!
+                    </div>
+                );
+            case O_WON:
+                return (
+                    <div>
+                        <h2>GAME OVER</h2>
+                        O won!
+                    </div>
+                );
+            case DRAW:
+                return (
+                    <div>
+                        <h2>GAME OVER</h2>
+                        A draw!
+                    </div>
+                );
+            case IN_PROGRESS:
+                return (
+                    <div>
+                        <p>Next player: <b>{gameState.turn}</b></p>
+                    </div>
+                );
+            default:
+                return <div/>
         }
     }
 }
