@@ -8,11 +8,11 @@ describe('when there is a winner', () => {
 
     test('throw when invalid winner value', () => {
 
-        const winner = 'invalid-winner-constant'
+        const winner = 'invalid-winner-constant';
 
         expect(() =>
             getStatus(winner, anyBoard))
-            .toThrow('Invalid winner, expected X or O: ' + winner);
+            .toThrow('Invalid winner value! Expected X or O: ' + winner);
     });
 
     test('maps to won status if winner is known', () => {
