@@ -1,5 +1,5 @@
 import {alternateTurn} from "./turn-alternator";
-import {isFinished} from "./finish-resolver";
+import {getStatus} from "./status-resolver";
 import {markBoard} from "./board-marker";
 import {getWinner} from "./winner-resolver";
 
@@ -15,8 +15,7 @@ export function move(gameState, row, column) {
     const nextGameState = {};
     nextGameState.board = nextBoard;
     nextGameState.turn = alternateTurn(gameState.turn);
-    nextGameState.winner = winner;
-    nextGameState.finished = isFinished(winner, nextBoard);
+    nextGameState.status = getStatus(winner, nextBoard);
 
     return nextGameState;
 }

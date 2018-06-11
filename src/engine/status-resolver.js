@@ -1,6 +1,6 @@
 import {_} from "./state";
 
-export function isFinished(winner, board) {
+export function getStatus(winner, board) {
 
     if (winner !== undefined) return true;
 
