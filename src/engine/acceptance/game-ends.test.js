@@ -18,7 +18,7 @@ test('X wins', () => {
     makeMove(2, 1);
     makeMove(1, 0);
 
-    expectWinner(X);
+    expectStatus(X_WINS);
 
     expectBoard([
         [X, _, O],
@@ -37,7 +37,7 @@ test('O wins', () => {
     makeMove(2, 1);
     makeMove(2, 2);
 
-    expectWinner(O);
+    expectStatus(O_WINS);
 
     expectBoard([
         [O, _, X],
@@ -59,7 +59,7 @@ test('a draw', () => {
     makeMove(0, 2);
     makeMove(2, 1);
 
-    expectWinner(NONE);
+    expectStatus(DRAW);
 
     expectBoard([
         [X, O, O],
@@ -69,14 +69,30 @@ test('a draw', () => {
 
 });
 
+test('a draw', () => {
+
+    makeMove(0, 0);
+    makeMove(0, 1);
+    makeMove(1, 1);
+    makeMove(2, 2);
+
+    expectStatus(IN_PROGRESS);
+
+    expectBoard([
+        [X, O, _],
+        [_, X, _],
+        [_, _, O]
+    ]);
+
+});
+
 function makeMove(row, column) {
     state = move(state, row, column);
 }
 
-function expectWinner(expectedWinner) {
+function expectStatus(expectedStatus) {
     expect(state).toBeDefined();
-    expect(state.finished).toBeTruthy();
-    expect(state.winner).toBe(expectedWinner);
+    expect(state.status).toBe(expectedStatus);
 }
 
 function expectBoard(expectedBoard) {

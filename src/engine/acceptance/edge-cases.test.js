@@ -5,7 +5,7 @@ test('ignore move on finished game', () => {
 
     const state = createInitialState();
 
-    state.finished = true;
+    state.status = DRAW;
 
     forEveryMove(moveDoesNotChangeState);
 
