@@ -14,6 +14,7 @@ export function Board() {
     );
 
     function row(rowIndex) {
+
         return (
             <tr>
                 <td>{cell(rowIndex, 0)}</td>
