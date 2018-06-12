@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export function Cell(props) {
+export class Cell extends Component {
 
-    return <div>A cell at: {props.row}, {props.column}</div>
+    render() {
+
+        return <div>A cell at: {this.props.row}, {this.props.column}</div>
+    }
 }
