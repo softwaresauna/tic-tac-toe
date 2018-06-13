@@ -1,4 +1,3 @@
-
 const observers = [];
 
 let initialState = {};
