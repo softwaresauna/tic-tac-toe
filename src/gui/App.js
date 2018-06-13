@@ -8,7 +8,9 @@ export default function App() {
     return (
         <div className="App">
 
-            <img src={logo}/>
+            <a href="https://softwaresauna.com">
+                <img src={logo}/>
+            </a>
 
             <h1>Tic-Tac-Toe</h1>
 
