@@ -1,6 +1,6 @@
 import React from 'react';
 import './Cell.css';
-import {StateObserver} from "./state-observer";
+import {StateObserver} from "./state-observer/StateObserver";
 
 export class Cell extends StateObserver {
 

@@ -1,4 +1,5 @@
-import {setInitialState, StateObserver, updateState} from "./state-observer";
+import {setInitialState, updateState} from "./subject";
+import {StateObserver} from "./StateObserver";
 
 class MyObserver extends StateObserver {
 
@@ -25,6 +26,8 @@ test('observers receive initial state', ()=>{
 });
 
 test('observer receives state change', () => {
+
+    setInitialState(41);
 
     const observer = new MyObserver();
 
