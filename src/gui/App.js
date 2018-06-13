@@ -2,19 +2,11 @@ import React, {Component} from 'react';
 import './App.css';
 import {Board} from "./Board";
 
-console.info("Hello, Tic-Tac-Toe!");
+export default function App() {
 
-class App extends Component {
-
-    render() {
-        return (
-            <div className="App">
-
-                <Board/>
-
-            </div>
-        );
-    }
+    return (
+        <div className="App">
+            <Board/>
+        </div>
+    );
 }
-
-export default App;
