@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Board} from "./Board";
-import {setInitialState} from "./gui/state-observer";
-import {_} from "./engine/board-markings";
+import {_} from "../engine/board-markings";
+import {setInitialState} from "./state-observer";
 
 
 
