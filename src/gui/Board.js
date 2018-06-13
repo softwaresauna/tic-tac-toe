@@ -1,10 +1,10 @@
 import React from 'react';
 import {Cell} from "./Cell";
-
+import './Board.css';
 export function Board() {
 
     return (
-        <table border="1">
+        <table className='Board'>
             <tbody>
             {row(0)}
             {row(1)}
