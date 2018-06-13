@@ -17,9 +17,9 @@ export function Board() {
 
         return (
             <tr>
-                <td>{cell(rowIndex, 0)}</td>
-                <td>{cell(rowIndex, 1)}</td>
-                <td>{cell(rowIndex, 2)}</td>
+                {cell(rowIndex, 0)}
+                {cell(rowIndex, 1)}
+                {cell(rowIndex, 2)}
             </tr>
         );
     }

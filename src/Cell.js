@@ -1,16 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
+import './Cell.css';
+import {StateObserver} from "./gui/state-observer";
 
-export class Cell extends Component {
-
-    constructor(props) {
-
-        super(props);
-
-        this.state = { value: `A cell at: ${this.props.row}, ${this.props.column}` };
-    }
+export class Cell extends StateObserver {
 
     render() {
 
-        return <div>{this.state.value}</div>
+        return <td className='Cell'>{this.state.board[this.props.row][this.props.column]}</td>
     }
 }
