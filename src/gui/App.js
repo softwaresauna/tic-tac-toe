@@ -1,20 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Board} from "./Board";
-import {_} from "../engine/board-markings";
+import {_, INITIAL_STATE} from "../engine/constants";
 import {setInitialState} from "./state-observer";
 
 
 
-setInitialState({
-
-    board: [
-        [_, _, _],
-        [_, _, _],
-        [_, _, _]
-    ]
-
-});
+setInitialState(INITIAL_STATE);
 
 console.info("Hello, Tic-Tac-Toe!");
 
