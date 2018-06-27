@@ -11,7 +11,7 @@ class MyObserver extends StateObserver {
     }
 }
 
-test('observers receive initial state', ()=>{
+test('all observers receive initial state', ()=>{
 
     setInitialState(42);
 
@@ -25,13 +25,15 @@ test('observers receive initial state', ()=>{
     expect(observer2.state).toEqual(43);
 });
 
-test('observer receives state change', () => {
+test('all observers receive updated state', () => {
 
     setInitialState(41);
 
-    const observer = new MyObserver();
+    const observer1 = new MyObserver();
+    const observer2 = new MyObserver();
 
     updateState(42);
 
-    expect(observer.state).toEqual(42);
+    expect(observer1.state).toEqual(42);
+    expect(observer2.state).toEqual(42);
 });
