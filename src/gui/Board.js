@@ -1,6 +1,7 @@
 import React from 'react';
 import {Cell} from "./Cell";
 import './Board.css';
+
 export function Board() {
 
     return (
