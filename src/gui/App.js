@@ -9,7 +9,7 @@ export default function App() {
         <div className="App">
 
             <a href="https://softwaresauna.com">
-                <img src={logo}/>
+                <img src={logo} alt="Software Sauna logo"/>
             </a>
 
             <h1>Tic-Tac-Toe</h1>
