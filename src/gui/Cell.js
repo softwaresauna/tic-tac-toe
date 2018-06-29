@@ -1,6 +1,7 @@
 import React from 'react';
 import './Cell.css';
 import {StateObserver} from "./state-observer/StateObserver";
+import {makeMove} from "../engine/engine";
 
 export class Cell extends StateObserver {
 
@@ -14,7 +15,8 @@ export class Cell extends StateObserver {
     }
 
     onClick = () => {
-        console.info(`Clicked cell (${this.props.row}, ${this.props.column})!`);
+
+        makeMove(this.state, this.props.row, this.props.column);
     };
 
     getContents = () => this.state.board[this.props.row][this.props.column];
